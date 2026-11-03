@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0755b8">
+<title>Annie's | Servicio de Aseo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #0755b8;
+  --dark-navy: #0e294b;
+  --subtitle-gray: #5a6e85;
+}
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: #ffffff;
+}
+.page {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 46fr 54fr;
+}
+
+/* PANEL IZQUIERDO (VIDEO) */
+.video-panel {
+  min-height: 100vh;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 85% 85%, rgba(255,255,255,0.14), transparent 40%),
+              linear-gradient(135deg, #073b86 0%, #0755b8 60%, #0b70cb 100%);
+}
+.video-heading {
+  margin: 0 0 6px 0;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+}
+.video-caption {
+  margin: 0 0 20px 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
+  font-weight: 400;
+}
+.video-frame {
+  position: relative;
+  height: min(78vh, 820px);
+  aspect-ratio: 572 / 1018;
+  max-width: 100%;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  background: #000;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+.video-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.unmute-btn {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 10;
+  background: rgba(7, 85, 184, 0.9);
+  color: #fff;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* PANEL DERECHO */
+.content-panel {
+  min-height: 100vh;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #ffffff;
+}
+
+/* LOGO OFICIAL SVG RECONSTRUIDO AL 100% */
+.logo-container {
+  width: 100%;
+  max-width: 440px;
+  margin-bottom: 30px;
+}
+.logo-container svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* TEXTOS AMPLIADOS PARA LLENAR ESPACIO */
+.eyebrow {
+  margin: 0 0 16px 0;
+  color: var(--blue);
+  font-size: clamp(12px, 1.1vw, 15px);
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+h1 {
+  margin: 0 0 24px 0;
+  color: var(--dark-navy);
+  font-size: clamp(38px, 3.7vw, 56px);
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  max-width: 680px;
+}
+.message-title {
+  margin: 0 0 12px 0;
+  color: var(--dark-navy);
+  font-size: clamp(17px, 1.5vw, 22px);
+  font-weight: 800;
+}
+.message-subtitle {
+  margin: 0 0 40px 0;
+  color: var(--subtitle-gray);
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.6;
+  max-width: 540px;
+  font-weight: 500;
+}
+
+/* BOTÓN DE WHATSAPP MÁS GRANDE */
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 60px;
+  padding: 0 42px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #097cd9 0%, #064ca9 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 0 12px 28px rgba(7, 85, 184, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.whatsapp-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(7, 85, 184, 0.45);
+}
+.whatsapp-icon {
+  width: 22px;
+  height: 22px;
+  fill: #ffffff;
+}
+
+.footer {
+  margin-top: 50px;
+  color: #a4b3c6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* ADAPTACIÓN RESPONSIVA */
+@media (max-width: 960px) {
+  .page { grid-template-columns: 1fr; }
+  .video-panel { min-height: auto; padding: 40px 20px; }
+  .content-panel { min-height: auto; padding: 50px 24px; }
+  .logo-container { max-width: 340px; }
+}
+</style>
+</head>
+<body>
+
+<main class="page">
+  <!-- PANEL IZQUIERDO -->
+  <section class="video-panel">
+    <h2 class="video-heading">La experiencia de nuestros clientes</h2>
+    <p class="video-caption">Una recomendación real de Annie's Servicio de Aseo</p>
+
+    <div class="video-frame">
+      <video id="mainVideo" autoplay muted loop playsinline controls preload="auto">
+        <source src="video.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+      <button id="unmuteBtn" class="unmute-btn" onclick="toggleAudio()">🔊 Activar Sonido</button>
+    </div>
+  </section>
+
+  <!-- PANEL DERECHO -->
+  <section class="content-panel">
+    <!-- LOGO SVG FIEL AL 100% -->
+    <div class="logo-container">
+      <svg viewBox="0 0 500 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Arco superior circular -->
+        <path d="M 125 210 A 155 155 0 1 1 375 210" stroke="#0755b8" stroke-width="15" stroke-linecap="round" fill="none"/>
+        
+        <!-- Casa (Techo con volumen) -->
+        <path d="M 122 195 L 210 112 L 235 135 L 235 120 L 252 120 L 252 151 L 298 195 L 280 195 L 210 128 L 140 195 Z" fill="#0755b8"/>
+        
+        <!-- Ventana de 4 cristales -->
+        <rect x="194" y="162" width="14" height="14" fill="#0755b8"/>
+        <rect x="212" y="162" width="14" height="14" fill="#0755b8"/>
+        <rect x="194" y="180" width="14" height="14" fill="#0755b8"/>
+        <rect x="212" y="180" width="14" height="14" fill="#0755b8"/>
+
+        <!-- Botella de spray -->
+        <path d="M 272 138 C 265 138 261 144 261 150 L 255 160 C 250 168 250 178 255 235 L 290 235 C 295 178 295 168 290 160 L 284 150 Z" fill="#0755b8"/>
+        <path d="M 261 148 L 246 148 C 242 148 242 140 248 140 L 261 143 Z" fill="#0755b8"/>
+        <circle cx="295" cy="138" r="4" fill="#0755b8"/>
+        <circle cx="305" cy="150" r="5" fill="#0755b8"/>
+        <circle cx="300" cy="168" r="4" fill="#0755b8"/>
+
+        <!-- Cubeta / Balde -->
+        <path d="M 302 188 L 322 188 L 326 220 L 305 220 Z" fill="#0755b8"/>
+        
+        <!-- Escoba / Trapeador largo -->
+        <path d="M 324 106 L 272 225 M 328 108 L 276 227" stroke="#0755b8" stroke-width="8" stroke-linecap="round"/>
+        <path d="M 260 215 C 270 200 300 200 310 215 L 318 242 C 300 252 270 252 252 242 Z" fill="#0755b8"/>
+
+        <!-- Estrellas / Destellos -->
+        <!-- Gran estrella superior -->
+        <path d="M 245 92 Q 245 107 232 107 Q 245 107 245 122 Q 245 107 258 107 Q 245 107 245 92 Z" fill="#0755b8"/>
+        <!-- Estrella izquierda -->
+        <path d="M 172 195 Q 172 206 162 206 Q 172 206 172 217 Q 172 206 182 206 Q 172 206 172 195 Z" fill="#0755b8"/>
+        <!-- Estrella derecha -->
+        <path d="M 230 205 Q 230 213 223 213 Q 230 213 230 221 Q 230 213 237 213 Q 230 213 230 205 Z" fill="#0755b8"/>
+
+        <!-- Olas marinas / Arcos inferiores de la base -->
+        <path d="M 125 240 C 180 218 240 262 315 248 C 300 258 240 274 125 252 Z" fill="#0755b8"/>
+        <path d="M 125 264 C 180 242 240 280 315 262 C 300 273 240 292 125 275 Z" fill="#0755b8"/>
+
+        <!-- Texto principal Annie's -->
+        <text x="248" y="348" text-anchor="middle" font-family="'Brush Script MT', 'Comic Sans MS', cursive" font-size="104" font-weight="bold" fill="#0755b8">Annie's</text>
+        <path d="M 326 270 Q 332 265 336 270 Q 332 275 326 270 Z" fill="#0755b8"/>
+        <path d="M 334 260 Q 334 268 327 268 Q 334 268 334 276 Q 334 268 341 268 Q 334 268 334 260 Z" fill="#0755b8"/>
+
+        <!-- Texto secundario con líneas horizontales -->
+        <line x1="95" y1="372" x2="128" y2="372" stroke="#0755b8" stroke-width="3.5" stroke-linecap="round"/>
+        <text x="248" y="378" text-anchor="middle" font-family="'Montserrat', Arial, sans-serif" font-size="20" font-weight="900" letter-spacing="5" fill="#0755b8">SERVICIO DE ASEO</text>
+        <line x1="368" y1="372" x2="401" y2="372" stroke="#0755b8" stroke-width="3.5" stroke-linecap="round"/>
+
+        <!-- Arco azul sutil inferior -->
+        <path d="M 130 405 C 190 428 306 428 366 405" stroke="#0755b8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- CONTENIDO AMPLIADO EN PANTALLA -->
+    <p class="eyebrow">LIMPIEZA Y CUIDADO DE TUS ESPACIOS</p>
+    <h1>Tu espacio limpio.<br>Tu tranquilidad también.</h1>
+    <p class="message-title">¿Tienes un negocio o una casa? ¡Contáctanos!</p>
+    <p class="message-subtitle">En Annie's nos preocupamos por cada detalle para que disfrutes de espacios frescos, ordenados e impecables.</p>
+
+    <a href="https://wa.me/" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+      <svg class="whatsapp-icon" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      </svg>
+      CONTÁCTANOS POR WHATSAPP
+    </a>
+
+    <p class="footer">ANNIE'S · SERVICIO DE ASEO</p>
+  </section>
+</main>
+
+<script>
+  const video = document.getElementById('mainVideo');
+  const btn = document.getElementById('unmuteBtn');
+
+  window.addEventListener('DOMContentLoaded', () => {
+    if (video) {
+      video.muted = true;
+      video.play().catch(err => console.log("Autoplay:", err));
+    }
+  });
+
+  document.addEventListener('click', function enableAudioOnFirstClick() {
+    if (video && video.muted) {
+      video.muted = false;
+      if (btn) btn.textContent = '🔇 Silenciar';
+    }
+    document.removeEventListener('click', enableAudioOnFirstClick);
+  }, { once: true });
+
+  function toggleAudio() {
+    if (video.muted) {
+      video.muted = false;
+      btn.textContent = '🔇 Silenciar';
+    } else {
+      video.muted = true;
+      btn.textContent = '🔊 Activar Sonido';
+    }
+  }
+</script>
+
+</body>
+</html>
